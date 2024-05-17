@@ -258,9 +258,9 @@ public class FuncionarioDao {
         }
     }
 
-    public void crear(Funcionario funcionario, int tipoDocumentoId, int estadoCivilId) {
+    /*public void crear(Funcionario funcionario, int tipoDocumentoId, int estadoCivilId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }*/
 
    
 }

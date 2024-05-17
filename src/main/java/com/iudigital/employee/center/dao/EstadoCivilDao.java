@@ -14,6 +14,7 @@ import java.util.List;
 public class EstadoCivilDao {
 
     private static final String GET_ESTADOS_CIVILES = "SELECT estado_civil_id, nombre FROM recursos_humanos_iud.estado_civil";
+    private static final String GET_ESTADO_CIVIL_ID = "SELECT estado_civil_id FROM recursos_humanos_iud.estado_civil WHERE estado_civil_id = ?";
 
     public List<EstadoCivil> obtenerEstadosCiviles() throws SQLException {
         List<EstadoCivil> estadosCiviles = new ArrayList<>();
@@ -51,10 +52,10 @@ public class EstadoCivilDao {
 
     public static int obtenerEstadoCivilId(String estadoCivil) throws SQLException {
         int estadoCivilId = -1;
-        String sql = "SELECT estado_civil_id FROM recursos_humanos_iud.estado_civil WHERE estado_civil_id = ?";
+
         try (
                 Connection connection = ConnectionUtil.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
+                PreparedStatement preparedStatement = connection.prepareStatement(GET_ESTADO_CIVIL_ID);) {
             preparedStatement.setString(1, estadoCivil);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {

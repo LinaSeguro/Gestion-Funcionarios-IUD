@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.iudigital.employee.center.presentacion;
 
 import com.iudigital.employee.center.controller.FuncionarioController;
@@ -12,10 +8,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-
 public class EmployeeCenterApp {
 
-    public static void obtenerFuncionarios(FuncionarioController funcionarioController) {
+   /* public static void obtenerFuncionarios(FuncionarioController funcionarioController) {
         try {
             List<Funcionario> funcionarios = funcionarioController.obtenerFuncionario();
             if (funcionarios.isEmpty()) {
@@ -48,5 +43,5 @@ public class EmployeeCenterApp {
         FuncionarioController funcionarioController = new FuncionarioController();
         obtenerFuncionarios(funcionarioController);
 
-    }
+    }*/
 }

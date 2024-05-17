@@ -98,7 +98,7 @@ public class Main extends javax.swing.JFrame {
 
                 // Seleccionar el tipo de documento correspondiente en el JComboBox
                 String tipoDocumentoCodigoSeleccionado = selectedFuncionario.getTipoDocumento();
-                System.out.println("Código de tipo de documento seleccionado: " + tipoDocumentoCodigoSeleccionado); // Depuración
+
                 boolean tipoDocumentoEncontrado = false;
                 for (int i = 0; i < cbxIdTypeEdit.getItemCount(); i++) {
                     TipoDocumento item = (TipoDocumento) cbxIdTypeEdit.getItemAt(i);
@@ -198,8 +198,8 @@ public class Main extends javax.swing.JFrame {
 
             TipoDocumento seleccionarTipoIdentificacion = new TipoDocumento();
             seleccionarTipoIdentificacion.setCodigo("SELECCIONE");
-            
-             cbxIdTypeEdit.addItem(seleccionarTipoIdentificacion);
+
+            cbxIdTypeEdit.addItem(seleccionarTipoIdentificacion);
 
             // Agregar cada tipo de documento al ComboBox
             for (TipoDocumento tipoDocumento : tiposDocumento) {
@@ -222,7 +222,7 @@ public class Main extends javax.swing.JFrame {
 
             EstadoCivil seleccionarEstadoCivil = new EstadoCivil();
             seleccionarEstadoCivil.setNombre("SELECCIONE");
-            
+
             // Agregar la opción "SELECCIONE" al ComboBox
             cbxStatusEdit.addItem(seleccionarEstadoCivil);
 
@@ -236,8 +236,6 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al obtener los estados civiles");
         }
     }
-
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -834,7 +832,6 @@ public class Main extends javax.swing.JFrame {
         // Obtener el ID del estado civil seleccionado
         int estadoCivilIdEdit = estadoCivilEdit.getEstadoCivilId();
 
-        
         try {
             Funcionario funcionario = new Funcionario();
             funcionario.setFuncionarioId(Integer.parseInt(txtIdEdit.getText().trim()));
@@ -952,7 +949,7 @@ public class Main extends javax.swing.JFrame {
 
         Object selectedStatus = cbxStatus.getSelectedItem();
 
-            // Verificar si se ha seleccionado un estado civil válido
+        // Verificar si se ha seleccionado un estado civil válido
         if (selectedStatus == null || !(selectedStatus instanceof EstadoCivil)) {
             JOptionPane.showMessageDialog(null, "Seleccione un estado civil válido");
             cbxStatus.requestFocus();
@@ -967,10 +964,10 @@ public class Main extends javax.swing.JFrame {
             System.out.println("El objeto seleccionado no es una instancia de EstadoCivil.");
         }
 
-            // El estado civil seleccionado es un objeto EstadoCivil
+        // El estado civil seleccionado es un objeto EstadoCivil
         EstadoCivil estadoCivil = (EstadoCivil) selectedStatus;
 
-            // Obtener el ID del estado civil seleccionado
+        // Obtener el ID del estado civil seleccionado
         int estadoCivilId = estadoCivil.getEstadoCivilId();
 
         try {
@@ -980,7 +977,7 @@ public class Main extends javax.swing.JFrame {
             funcionario.setNombres(txtName.getText().trim());
             funcionario.setApellidos(txtLast.getText().trim());
             funcionario.setEstadoCivil(String.valueOf(estadoCivilId));
-            funcionario.setSexo(sexo); // Usamos el valor validado del sexo aquí
+            funcionario.setSexo(sexo); 
             funcionario.setTelefono(txtPhone.getText().trim());
             funcionario.setDireccion(txtAddress.getText().trim());
 
@@ -1025,11 +1022,11 @@ public class Main extends javax.swing.JFrame {
 
             try {
                 funcionarioController.eliminarFuncionario(Integer.parseInt(txtIdEdit.getText()));
-                cbxIdType.setSelectedItem(0);
+                cbxIdType.setSelectedIndex(0);
                 txtNumberEdit.setText("");
                 txtNameEdit.setText("");
                 txtLastEdit.setText("");
-                cbxStatus.setSelectedItem(0);
+                cbxStatus.setSelectedIndex(0);
                 txtSexEdit.setText("");
                 txtPhoneEdit.setText("");
                 txtAddressEdit.setText("");

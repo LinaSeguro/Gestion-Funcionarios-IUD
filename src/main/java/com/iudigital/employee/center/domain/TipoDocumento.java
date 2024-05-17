@@ -4,13 +4,10 @@ package com.iudigital.employee.center.domain;
 import java.util.Objects;
 
 public class TipoDocumento {
-   
-    
+
     private int tipoDocumentoId;
     private String codigo;
     private String nombre;
-
-    // Constructor, getters y setters
 
     public int getTipoDocumentoId() {
         return tipoDocumentoId;

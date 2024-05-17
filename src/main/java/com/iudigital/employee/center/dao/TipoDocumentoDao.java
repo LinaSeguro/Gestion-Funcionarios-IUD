@@ -14,6 +14,7 @@ import java.util.List;
 public class TipoDocumentoDao {
 
     private static final String GET_TIPOS_DOCUMENTO = "SELECT tipo_documento_id, codigo, nombre FROM recursos_humanos_iud.tipo_documento";
+    private static final String GET_TIPO_DOCUMENTO_ID = "SELECT tipo_documento_id FROM recursos_humanos_iud.tipo_documento WHERE tipo_documento_id= ?";
 
     public List<TipoDocumento> obtenerTiposDocumento() throws SQLException {
         List<TipoDocumento> tiposDocumento = new ArrayList<>();
@@ -53,10 +54,10 @@ public class TipoDocumentoDao {
 
     public static int obtenerTipoDocumentoId(String tipoDocumento) throws SQLException {
         int tipoDocumentoId = -1;
-        String sql = "SELECT tipo_documento_id FROM recursos_humanos_iud.tipo_documento WHERE tipo_documento_id= ?";
+
         try (
                 Connection connection = ConnectionUtil.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
+                PreparedStatement preparedStatement = connection.prepareStatement(GET_TIPO_DOCUMENTO_ID);) {
             preparedStatement.setString(1, tipoDocumento);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
